@@ -12,8 +12,9 @@ block content
                         .card-body
                             a(href="/concerts/checkout?id=" + element._id).h5.card-title  #{element.ArtistName}
                             li.card-text  #{element.ConcertPrice} euro
-                            li.card-text.text-muted #{element.ConcertDate}
+                            li.card-text.text-muted #{moment(element.ConcertDate).format('MMM Do YYYY')}
                             li.card-text Tickets Available: #{element.TicketsAvailable - element.TicketsSold}
+                            
 
 
 

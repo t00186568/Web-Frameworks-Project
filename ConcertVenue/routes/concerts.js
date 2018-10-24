@@ -17,7 +17,13 @@ router.get('/addConcert', function(req, res, next){
 
 router.get('/checkout', function(req, res, next){
     //ConcertID is passed from link on upcomingEvents page through the url as checkout?id=[id]
-    //I then use req.param to extract this ID from the URL and I will use this to query the database for the relevant information associated with it
+    //I then use req.query to extract this ID from the URL and I will use this to query the database for the relevant information associated with it
+    if(!req.session.user){
+        const url = req.url;
+       
+        res.redirect('/users/login/?redirect=' + url);
+      }else{
+    
     var concert_id = req.query['id'];
 
     var resultArray = [];
@@ -32,6 +38,7 @@ router.get('/checkout', function(req, res, next){
             res.render('checkout', {title: 'Checkout', items: resultArray});
         });
     });
+}
 });
 
 
@@ -52,7 +59,7 @@ router.get('/upcomingEvents', function(req, res, next) {
     });
 });
 
-router.post('/concerts', function(req, res, next){
+router.post('/addConcert', function(req, res, next){
     var item = {
         ArtistName:  req.body.ArtistName,
         ConcertPrice: req.body.ConcertPrice,
@@ -62,8 +69,9 @@ router.post('/concerts', function(req, res, next){
 
     mongoose.connect(url, function(err, db){
         db.collection('concerts').insertOne(item, function(err, result){
-            assert.equal(null, err);
-            res.redirect('/concerts');
+           // assert.equal(null, err);
+            res.redirect('/concerts/addConcert');
+           
             db.close();
         });
     });

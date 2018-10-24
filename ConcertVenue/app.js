@@ -10,6 +10,8 @@ var concertsRouter = require('./routes/concerts');
 
 var mongoose = require('mongoose');
 
+var session = require('express-session');
+
 
 
 var app = express();
@@ -23,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret:"sessionSecret", resave:false, saveUninitialized:true})); //I know it's not good practice to hardcode session secret, I feel a more complex way is out of scope for project
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

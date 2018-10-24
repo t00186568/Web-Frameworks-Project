@@ -16,19 +16,4 @@ router.get('/about', function(req, res, next){
 });
 
 
-
-
-
-router.get('/login', function(req, res, next){
-    res.render('login', { title: 'About - Concert Venue'});
-});
-
-
-
-//MongoDB test https://www.youtube.com/watch?v=ZKwrOXl5TDI
-
-
-
-
-
 module.exports = router;

@@ -2,7 +2,7 @@ extends layout
 
 block content
     .container
-        form(method="POST" action="/concerts")
+        form(method="POST" action="/concerts/addConcert")
             div.form-group
                 label(for="ArtistName") Artist Name:
                 input#ArtistName.form-control(type="text", name="ArtistName")
