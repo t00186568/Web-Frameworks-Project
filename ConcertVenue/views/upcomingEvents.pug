@@ -1,0 +1,26 @@
+extends layout
+
+block content
+        p
+        .container(action='/concerts')
+            .row
+                each element in items
+
+                    .col-lg-3.col-md-4.col-sm-6.mb-3
+                     .card(style='width: 200px')
+                        img.card-img-top(src='https://via.placeholder.com/200x150.png', alt="card")
+                        .card-body
+                            a(href="/concerts/checkout?id=" + element._id).h5.card-title  #{element.ArtistName}
+                            li.card-text  #{element.ConcertPrice} euro
+                            li.card-text.text-muted #{element.ConcertDate}
+                            li.card-text Tickets Available: #{element.TicketsAvailable - element.TicketsSold}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .container
+        form(method="POST" action="/concerts")
+            div.form-group
+                label(for="ArtistName") Artist Name:
+                input#ArtistName.form-control(type="text", name="ArtistName")
+            div.form-group
+                label(for="ConcertPrice") Price:
+                input#ConcertPrice.form-control(type="number", name="ConcertPrice")
+            button.btn.btn-primary(type="submit") Submit

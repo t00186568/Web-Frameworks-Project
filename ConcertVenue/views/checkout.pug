@@ -1,0 +1,7 @@
+extends layout
+block content
+
+
+    .container(action='/concerts')
+        each element in items
+           p #{element.ArtistName}

@@ -4,36 +4,43 @@ html(lang='en')
     title= title
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.4.1/css/all.css')
 
 
     link(rel='stylesheet' href='/stylesheets/style.css')
   body
-    nav.navbar.navbar-inverse
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') Concert Venue
-        #navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href='/') Home
+    main
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container
+          .navbar-header
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
+              span.navbar-toggler-icon
+            a.navbar-brand(href='/') Concert Venue
+          #navbar.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/') Home
 
-            li
-              a(href='/about') About
-            li
-              a(href='/upcoming') Upcoming Events
-          ul.nav.navbar-nav.navbar-right
+              li
+                a.nav-link(href='/about') About
+              li
+                a.nav-link(href='/concerts/upcomingEvents') Upcoming Events
+            ul.nav.navbar-nav.navbar-right
 
-            li
-              a(href='/login')
-                span.glyphicon.glyphicon-log-in
-                |  Login
+              li
+                a.nav-link(href='/login')
+                  span.fas.fa-sign-in-alt
+                  |  Login
 
-    block content
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+      block content
+
+    footer.footer
+       .container
+          span.text-muted Kieran McClure T00186568 Web Frameworks Project
+
+
+
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
