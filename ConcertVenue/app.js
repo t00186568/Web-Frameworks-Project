@@ -28,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/concerts', concertsRouter);
 
+app.locals.moment = require('moment');
 
 //Mongoose
 mongoose.connect('mongodb://localhost/concertVenue');

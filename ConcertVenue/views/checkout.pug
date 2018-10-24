@@ -4,4 +4,29 @@ block content
 
     .container(action='/concerts')
         each element in items
-           p #{element.ArtistName}
+                .card.mt-4
+                    img.card-img-top.img-fluid(src='http://placehold.it/900x200', alt='')
+                    .card-body
+                        h3.card-title #{element.ArtistName}
+                        h4 &euro;#{element.ConcertPrice}
+                        li.card-text.text-muted #{moment(element.ConcertDate).format('MMM Do YYYY')}
+                        li.card-text.text-muted Tickets Available: #{element.TicketsAvailable - element.TicketsSold}
+                            
+                        
+                .card.card-outline-secondary.my-4
+                    .card-header
+                        | Product Reviews
+                    .card-body
+                        p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+                        small.text-muted Posted by Anonymous on 3/1/17
+                        hr
+                        p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+                        small.text-muted Posted by Anonymous on 3/1/17
+                        hr
+                        p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.
+                        small.text-muted Posted by Anonymous on 3/1/17
+                        hr
+                        a.btn.btn-success(href='#') Leave a Review
